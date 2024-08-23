@@ -68,7 +68,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
             } else {
                 if (contactName1.length()>0){
                     int y = myDatabase.updateContact(new Contact(id, contactName1, contactPhone1));
-                    Toast.makeText(this, y + " updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     contact_name.setError("empty field!");
@@ -78,7 +78,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
 
         btn_delete.setOnClickListener(v -> {
             int y = myDatabase.deleteContact(new Contact(contactName, contactPhone));
-            Toast.makeText(this, y + " deleted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, contactName + " deleted", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ContactDetailsActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
