@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatAction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:backgroundTint="#007BEA"
+        android:src="@drawable/baseline_add_24"
+        app:tint="@color/white"
+        app:elevation="0dp"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Contacts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--<EditText-->
+<!--android:id="@+id/editTextText"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_marginStart="20dp"-->
+<!--android:layout_marginTop="5dp"-->
+<!--android:layout_marginEnd="20dp"-->
+<!--android:ems="10"-->
+<!--android:hint="Name"-->
+<!--android:inputType="text"-->
+<!--app:layout_constraintEnd_toEndOf="parent"-->
+<!--app:layout_constraintStart_toStartOf="parent"-->
+<!--app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--<Button-->
+<!--android:id="@+id/button_add"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_marginStart="20dp"-->
+<!--android:layout_marginTop="10dp"-->
+<!--android:layout_marginEnd="20dp"-->
+<!--android:text="Add"-->
+<!--android:textSize="20sp"-->
+<!--app:layout_constraintEnd_toEndOf="parent"-->
+<!--app:layout_constraintStart_toStartOf="parent"-->
+<!--app:layout_constraintTop_toBottomOf="@+id/editTextText" />-->
+
+<!--<androidx.recyclerview.widget.RecyclerView-->
+<!--android:paddingStart="20dp"-->
+<!--android:id="@+id/recyclerview"-->
+<!--android:layout_width="409dp"-->
+<!--android:layout_height="621dp"-->
+<!--android:layout_marginStart="1dp"-->
+<!--android:layout_marginTop="10dp"-->
+<!--android:layout_marginEnd="1dp"-->
+<!--android:layout_marginBottom="1dp"-->
+<!--app:layout_constraintBottom_toBottomOf="parent"-->
+<!--app:layout_constraintEnd_toEndOf="parent"-->
+<!--app:layout_constraintStart_toStartOf="parent"-->
+<!--app:layout_constraintTop_toBottomOf="@+id/button_add" />-->
