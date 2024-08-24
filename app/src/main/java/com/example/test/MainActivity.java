@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddContactActivity.class);
             startActivity(intent);
-            finish();
+            //finish();
         });
 
     }
@@ -89,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Permission denied to read your contacts", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Refresh data or update UI components here
+        contacts = myDatabase.getAllContacts();
+        myCustomAdapter = new MyCustomAdapter(contacts, this);
+        contacts.sort((c1, c2) -> c1.getContact_name().compareToIgnoreCase(c2.getContact_name()));
+        listView.setAdapter(myCustomAdapter);
     }
 
 

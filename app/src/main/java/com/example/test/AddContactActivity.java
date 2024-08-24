@@ -39,8 +39,8 @@ public class AddContactActivity extends AppCompatActivity {
         add_phone.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
 
         back_button.setOnClickListener(v -> {
-            Intent intent = new Intent(AddContactActivity.this, MainActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(AddContactActivity.this, MainActivity.class);
+//            startActivity(intent);
             finish();
         });
 

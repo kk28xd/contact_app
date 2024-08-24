@@ -52,8 +52,8 @@ public class ContactDetailsActivity extends AppCompatActivity {
         contact_phone.setText(contactPhone);
 
         btn_back.setOnClickListener(v -> {
-            Intent intent = new Intent(ContactDetailsActivity.this, MainActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(ContactDetailsActivity.this, MainActivity.class);
+//            startActivity(intent);
             finish();
         });
 
@@ -79,8 +79,8 @@ public class ContactDetailsActivity extends AppCompatActivity {
         btn_delete.setOnClickListener(v -> {
             int y = myDatabase.deleteContact(new Contact(contactName, contactPhone));
             Toast.makeText(this, contactName + " deleted", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(ContactDetailsActivity.this, MainActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(ContactDetailsActivity.this, MainActivity.class);
+//            startActivity(intent);
             finish();
         });
 
@@ -89,12 +89,6 @@ public class ContactDetailsActivity extends AppCompatActivity {
         });
     }
     private void makePhoneCall(String phone_num) {
-//        StringBuilder phone= new StringBuilder();
-//        for (int c = 0; c< phone_num.length();c++){
-//            if (c!='-'){
-//                phone.append(c);
-//            }
-//        }
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
             if (ContextCompat.checkSelfPermission(getBaseContext(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
@@ -104,7 +98,6 @@ public class ContactDetailsActivity extends AppCompatActivity {
             startCall(String.valueOf(phone_num));
         }
     }
-//012-235-005
     private void startCall(String phoneNumber) {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + phoneNumber));
