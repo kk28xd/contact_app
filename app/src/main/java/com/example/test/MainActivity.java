@@ -37,42 +37,15 @@ public class MainActivity extends AppCompatActivity {
 
         floatingActionButton = findViewById(R.id.floatAction);
         listView = findViewById(R.id.listView);
+        myDatabase = new MyDatabase(this);
+        contacts = myDatabase.getAllContacts();
+        myCustomAdapter = new MyCustomAdapter(contacts, this);
+        contacts.sort((c1, c2) -> c1.getContact_name().compareToIgnoreCase(c2.getContact_name()));
+        listView.setAdapter(myCustomAdapter);
 
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 1);
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
-                myDatabase = new MyDatabase(this);
-                for (Contact c : contacts) {
-                    myDatabase.deleteContact(c);
-                }
-                readContacts();
-                contacts = myDatabase.getAllContacts();
-                myCustomAdapter = new MyCustomAdapter(contacts, this);
-                contacts.sort((c1, c2) -> c1.getContact_name().compareToIgnoreCase(c2.getContact_name()));
-                listView.setAdapter(myCustomAdapter);
-                recreate();
-//            contacts.clear();
-
-//            myCustomAdapter = new MyCustomAdapter(contacts, this);
-            } else {
-                myDatabase = new MyDatabase(this);
-                contacts = myDatabase.getAllContacts();
-                myCustomAdapter = new MyCustomAdapter(contacts, this);
-                contacts.sort((c1, c2) -> c1.getContact_name().compareToIgnoreCase(c2.getContact_name()));
-                listView.setAdapter(myCustomAdapter);
-            }
-        } else {
-            myDatabase = new MyDatabase(this);
-            contacts = myDatabase.getAllContacts();
-            myCustomAdapter = new MyCustomAdapter(contacts, this);
-            contacts.sort((c1, c2) -> c1.getContact_name().compareToIgnoreCase(c2.getContact_name()));
-            listView.setAdapter(myCustomAdapter);
-//            for (Contact c : contacts) {
-//                myDatabase.deleteContact(c);
-//            }
-        }
-
+//        for (Contact c : contacts){
+//            myDatabase.deleteContact(c);
+//        }
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Contact contact = (Contact) parent.getItemAtPosition(position);
